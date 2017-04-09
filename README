@@ -1,9 +1,9 @@
 
 createProxyLogs.sh creates a log file, exampleLogs.log, that looks a little like a web proxy log and is written in bash
 
-createProxyLogs.py create a log file, proxy.log, that looks a little like a web proxy log and is written in python
+createLogs.py creates a log file, proxy.log, that looks a little like a web proxy log and is written in python. This will eventually create additional log types.
 
-Neither of these scripts has an error code, HTTP action type, complete URL, etc., they simply write:
+Neither of these scripts has an error code, HTTP action type, complete URL, etc., in their proxy type. They simply write:
 
 o a timestamp
 o an internal IP address
