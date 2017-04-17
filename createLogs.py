@@ -68,8 +68,7 @@ def createProxyLogs(ts_time, end_time, users, sites, user_ips, consistent_logs =
             line_batch = ""
         ts_time = ts_time + 1
         line_count = line_count + 1
-    print("Total proxy logs written: " + str(line_count))
-    print()
+    print("Number of proxy logs written: " + str(line_count))
 
 #
 # createDNSLine
@@ -97,7 +96,7 @@ def createDNSLogs(ts_time, end_time, i_dns, e_dns, sites, bbc_uk, bbc_com, googl
     line_batch = ""
     while(ts_time <= end_time):
         i_dns_ip = i_dns[random.randint(0, len(i_dns) - 1)]
-        e_dns_ip = e_dns[random.randint(0, len(i_dns) - 1)]
+        e_dns_ip = e_dns[random.randint(0, len(e_dns) - 1)]
         query = sites[random.randint(0, len(sites) - 1)]
         if 'bbc.com' in query:
             response = bbc_com[random.randint(0, len(bbc_com) - 1)]
@@ -117,8 +116,7 @@ def createDNSLogs(ts_time, end_time, i_dns, e_dns, sites, bbc_uk, bbc_com, googl
             line_batch = ""
         ts_time = ts_time + 1
         line_count = line_count + 1
-    print("createDNSLogs lines processed: " + str(line_count))
-    print()
+    print("Number of DNS lines written: " + str(line_count))
  
 def createDHCPLogs(start_time, end_time):
     print("In createDHCPLogs")
@@ -192,6 +190,7 @@ print()
 print('Generating logs for ' + str(num_days) + ' days')
 print('Log start time: ' + iso_start_time)
 print('Log end time: ' + iso_curr_time)
+print()
 
 if(dhcp_logs or all_logs):
     createDHCPLogs(start_time, curr_time)
@@ -199,5 +198,9 @@ if(dns_logs or all_logs):
     createDNSLogs(start_time, curr_time, i_dns, e_dns, sites, bbc_uk, bbc_com, google, cnn)
 if(proxy_logs or all_logs):
     createProxyLogs(start_time, curr_time, users, sites, user_ips, consistent_logs)
+
+print()
+print('Finished writing logs, exiting')
+print()
        
 exit()
