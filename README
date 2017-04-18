@@ -1,7 +1,7 @@
 
 createProxyLogs.sh creates a log file, exampleLogs.log, that looks a little like a web proxy log and is written in bash
 
-createLogs.py creates a log file, proxy.log, that looks a little like a web proxy log and is written in python. This will eventually create additional log types.
+createLogs.py is written in python and intended for use with python 3. It will currently create logs that look sort of like they could have come from a web proxy or from passive DNS. If you prefer you can specify both. 
 
 Neither of these scripts has an error code, HTTP action type, complete URL, etc., in their proxy type. They simply write:
 
@@ -10,3 +10,12 @@ o an internal IP address
 o an authenticated username
 o a requested URI
 
+createLogs.py does not have a DNS request type, TTL, etc. It does have:
+
+o a timestamp
+o an internal DNS server
+o an external DNS server
+o a requested domain (DNS query)
+o an IP as a response (DNS response)
+
+The domains, DNS servers and IPs are all hard-coded in the script but chosen via python's random integer function.
